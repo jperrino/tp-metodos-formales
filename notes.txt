@@ -1,0 +1,15 @@
+Dependencies:
+------------
+Maven
+Cucumber
+Cucumber-picocontainer
+Cucumber-testng
+TestNG
+Allure
+Allure-cucumber6-jvm
+Selenium Web-Driver
+
+Commands:
+-------
+mvn clean test
+allure serve target/allure-results
