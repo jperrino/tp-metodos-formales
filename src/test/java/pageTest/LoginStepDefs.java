@@ -35,10 +35,22 @@ public class LoginStepDefs {
         loginPage.loginBtn().click();
     }
 
-    @Then("I should be taken to Home page")
-    public void shouldGoToHome() {
-        String pageTitle = homePage.homeTitleLbl().getInnerText();
-        String expected = "Titulo de bienvenida";
+    @Then("I should be taken to {string} page")
+    public void shouldGoToHome(String page) {
+        String pageTitle = null;
+        String expected = null;
+        switch(page) {
+            case "Home":
+                pageTitle = homePage.homeTitleLbl().getInnerText();
+                expected = "Manual del Sitio";
+                break;
+            case "Login":
+                pageTitle = loginPage.loginTitleLbl().getInnerText();
+                expected = "Iniciar Sesion";
+                break;
+            default:
+                Assert.fail("Ivalid page input: " + page);
+        }
         Assert.assertTrue(pageTitle.equals(expected),
                 "Expected: " + pageTitle + ", Actual: " + expected +"\n");
     }
