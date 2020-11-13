@@ -1,6 +1,7 @@
 package pageObjects;
 
 import driver.DriverManager;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
 public class BasePage {
@@ -16,5 +17,10 @@ public class BasePage {
     public String getTitle()
     {
         return manager.getDriver().getTitle();
+    }
+
+    public void confirmAlert(){
+        Alert alertOK = manager.getDriver().switchTo().alert();
+        alertOK.accept();
     }
 }

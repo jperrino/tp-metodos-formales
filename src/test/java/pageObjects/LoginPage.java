@@ -5,7 +5,6 @@ import controls.Label;
 import controls.TextBox;
 import driver.DriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 
 public class LoginPage extends BasePage {
 
@@ -16,6 +15,7 @@ public class LoginPage extends BasePage {
     public Label loginTitleLbl() {
         return new Label(By.xpath("//h2"), super.manager);
     }
+
     public TextBox usernameTxtb() {
         return new TextBox(By.xpath("//input[@type='text']"), super.manager);
     }

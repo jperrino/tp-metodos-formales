@@ -4,20 +4,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pageObjects.HomePage;
 import pageObjects.LoginPage;
-import pageObjects.TallerPage;
 
 public class LoginStepDefs {
 
     private final LoginPage loginPage;
-    private final HomePage homePage;
-    private final TallerPage tallerPage;
 
-    public LoginStepDefs(LoginPage loginPage, HomePage homePage, TallerPage tallerPage){
+    public LoginStepDefs(LoginPage loginPage){
         this.loginPage = loginPage;
-        this.homePage = homePage;
-        this.tallerPage = tallerPage;
     }
 
     @Given("I write my {string} in the username field")
@@ -35,30 +29,17 @@ public class LoginStepDefs {
         loginPage.loginBtn().click();
     }
 
-    @Then("I should be taken to {string} page")
-    public void shouldGoToHome(String page) {
-        String pageTitle = null;
-        String expected = null;
-        switch(page) {
-            case "Home":
-                pageTitle = homePage.homeTitleLbl().getInnerText();
-                expected = "Manual del Sitio";
-                break;
-            case "Login":
-                pageTitle = loginPage.loginTitleLbl().getInnerText();
-                expected = "Iniciar Sesion";
-                break;
-            default:
-                Assert.fail("Ivalid page input: " + page);
-        }
-        Assert.assertTrue(pageTitle.equals(expected),
-                "Expected: " + pageTitle + ", Actual: " + expected +"\n");
+    @Given("I login successfully")
+    public void loginSuccessful(){
+        loginPage.usernameTxtb().setText("test");
+        loginPage.passwordTxtb().setText("test");
+        loginPage.loginBtn().click();
     }
 
-    @Then("I should be taken to Taller page")
-    public void shouldGoToTaller() {
-        String pageTitle = tallerPage.tallerTitleLbl().getInnerText();
-        String expected = "Taller";
+    @Then("I remain at Login page")
+    public void remainOnLogin() {
+        String pageTitle = loginPage.loginTitleLbl().getInnerText();
+        String expected = "Iniciar Sesion";
         Assert.assertTrue(pageTitle.equals(expected),
                 "Expected: " + pageTitle + ", Actual: " + expected +"\n");
     }
