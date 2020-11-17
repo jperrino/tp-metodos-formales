@@ -21,4 +21,16 @@ public class NavBarStepDefs {
         nav.tallerDropdownBtn().click();
         nav.altaUnidadesBtn().click();
     }
+
+    @Given("I click on Alta Servicios")
+    public void clickAltaServicios(){
+        nav.listadoServiciosDropdownBtn().click();
+        nav.altaServiciosBtn().click();
+    }
+
+    @Given("I click on Alta Estacion")
+    public void clickAltaEstacion(){
+        nav.estacionesDropdownBtn().click();
+        nav.altaEstacionBtn().click();
+    }
 }

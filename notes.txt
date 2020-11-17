@@ -13,3 +13,7 @@ Commands:
 -------
 mvn clean test
 allure serve target/allure-results
+change:
+.altaEsatciones-alert
+.unidad-alert
+.servicio-alert

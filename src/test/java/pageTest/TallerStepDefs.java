@@ -17,7 +17,7 @@ public class TallerStepDefs {
         String pageTitle = tallerPage.tallerTitleLbl().getInnerText();
         String expected = "Taller";
         Assert.assertTrue(pageTitle.equals(expected),
-                "Expected: " + pageTitle + ", Actual: " + expected +"\n");
+                "Expected: " + expected + ", Actual: " + pageTitle +"\n");
     }
 
     @Then("Unidad with patente: {string} is present")

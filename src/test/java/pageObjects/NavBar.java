@@ -48,4 +48,18 @@ public class NavBar extends BasePage {
     public Button altaViajesBtn() {
         return new Button(By.xpath("//a[text()='Alta Viajes']"), super.manager);
     }
+
+    public Button estacionesBtn() {
+        return new Button(By.xpath("//a[text()='Estaciones']"), super.manager);
+    }
+
+    public Button estacionesDropdownBtn() {
+        return new Button(By.xpath("//a[@id='navbarDropdownEstaciones']"), super.manager);
+    }
+
+    public Button altaEstacionBtn() {
+        return new Button(By.xpath("//a[text()='Alta Estacion']"), super.manager);
+    }
+
+
 }
