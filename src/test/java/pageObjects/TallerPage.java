@@ -17,7 +17,7 @@ public class TallerPage extends BasePage {
     }
 
     public Label tallerTitleLbl() {
-        return new Label(By.xpath("//h2"), super.manager);
+        return new Label(By.xpath("//h2[text()='Taller']"), super.manager);
     }
 
     public void addTableItem(String itemText){

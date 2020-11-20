@@ -11,6 +11,6 @@ public class HomePage extends BasePage {
     }
 
     public Label homeTitleLbl() {
-        return new Label(By.xpath("//h2"), super.manager);
+        return new Label(By.xpath("//h2[text()='Manual del Sitio']"), super.manager);
     }
 }
